@@ -1,5 +1,11 @@
 2007-03-15  Ross Burton  <ross@burtonini.com>
 
+	* configure.ac:
+	* dummy-ebook/Makefile.am:
+	Get the extension directory from pkg-config
+
+2007-03-15  Ross Burton  <ross@burtonini.com>
+
 	* src/eds-bookview.c:
 	Add verbose contact printing.
 

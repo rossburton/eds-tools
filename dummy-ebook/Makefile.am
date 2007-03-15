@@ -1,5 +1,4 @@
-# TODO: use evolution-data-server-1.2.pc's extensiondir variable
-backenddir = $(libdir)/evolution-data-server-1.2/extensions
+backenddir = @EXTENSIONDIR@
 backend_LTLIBRARIES = libebookbackenddummy.la
 
 libebookbackenddummy_la_SOURCES =	\
