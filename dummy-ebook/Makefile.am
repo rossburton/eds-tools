@@ -9,7 +9,7 @@ libebookbackenddummy_la_SOURCES =	\
 
 libebookbackenddummy_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"libebookbackend\" \
-	$(EDATABOOK_CFLAGS)
+	$(EDATABOOK_CFLAGS) -Wall
 
 libebookbackenddummy_la_LIBADD = \
 	$(EDATABOOK_LIBS)

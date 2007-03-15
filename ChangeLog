@@ -1,5 +1,11 @@
 2007-03-15  Ross Burton  <ross@burtonini.com>
 
+	* dummy-ebook/Makefile.am:
+	* src/Makefile.am:
+	Add -Wall.
+
+2007-03-15  Ross Burton  <ross@burtonini.com>
+
 	* src/eds-bookview.c:
 	Add custom queries support.
 
