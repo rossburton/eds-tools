@@ -2,7 +2,7 @@
 
 	* configure.ac:
 	* dummy-ebook/Makefile.am:
-	Get the extension directory from pkg-config
+	Get the extension directory from pkg-config.
 
 2007-03-15  Ross Burton  <ross@burtonini.com>
 
