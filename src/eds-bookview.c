@@ -4,13 +4,15 @@
 static GMainLoop *loop = NULL;
 
 static char *uri = NULL;
+static char *query_str = NULL;
 static int count = 1;
 static gboolean silent = FALSE;
 static gboolean verbose = FALSE;
 
 static const GOptionEntry options[] =  {
   { "uri", 'u', 0, G_OPTION_ARG_STRING, &uri, "URI of book to open (default: system addressbook)." },
-  { "count", 'c', 0, G_OPTION_ARG_INT, &count, "Number of iterations (default: 1)" },
+  { "query", 'q', 0, G_OPTION_ARG_STRING, &query_str, "Query to use (default: none)" },
+  { "repetition", 'r', 0, G_OPTION_ARG_INT, &count, "Number of repetitions (default: 1)" },
   { "verbose", 'v', 0, G_OPTION_ARG_NONE, &verbose, "Verbose output" },
   { "silent", 's', 0, G_OPTION_ARG_NONE, &silent, "No output" },
   { NULL }
@@ -62,6 +64,8 @@ int main(int argc, char **argv) {
   GError *error = NULL;
   GOptionContext *context;
   EBook *book;
+  EBookQuery *query;
+  EBookView *view;
   
   g_type_init();
 
@@ -96,16 +100,21 @@ int main(int argc, char **argv) {
 
   if (verbose) g_print ("Opened book\n");
 
-  while (count--) {
-    EBookView *view = NULL;
-    //EBookQuery *query = e_book_query_field_test (E_CONTACT_FULL_NAME, E_BOOK_QUERY_CONTAINS, "Burton");
-    EBookQuery *query = e_book_query_any_field_contains ("");
+  if (query_str) {
+    query = e_book_query_from_string (query_str);
+    if (!query) {
+      g_error ("Cannot parse query: '%s'", query_str);
+    }
+  } else {
+    query = e_book_query_any_field_contains ("");
+  }
 
+  view = NULL;
+  while (count--) {
     if (verbose) g_print ("Getting EBookView...\n");
     if (!e_book_get_book_view (book, query, NULL, 0, &view, &error))
       die ("Call to get_book_view failed", error);
     if (verbose) g_print ("Got EBookView\n");
-    e_book_query_unref (query);
     g_object_connect (view,
                       "signal::contacts-added", G_CALLBACK (view_contacts_added), NULL,
                       "signal::status-message", G_CALLBACK (view_status_message), NULL,
@@ -115,9 +124,12 @@ int main(int argc, char **argv) {
     e_book_view_start (view);
     if (verbose) g_print ("Entering main loop...\n");
     g_main_loop_run (loop);
+    /* At this point the view should be destroyed, so NULL the pointer */
+    view = NULL;
   }
   g_object_unref (book);
-
+  e_book_query_unref (query);
+    
   if (verbose)
     g_print ("Closed EBook\n");
 
