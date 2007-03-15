@@ -45,7 +45,16 @@ static void view_contacts_added (EBookView *book_view, GList *contacts, gpointer
 {
   if (!silent) {
     while (contacts) {
-      g_print ("Got contact %s\n",  (char*)e_contact_get_const (contacts->data, E_CONTACT_FILE_AS));
+      EContact *contact = contacts->data;
+      if (verbose) {
+        char *s;
+        s = e_vcard_to_string (E_VCARD (contact), EVC_FORMAT_VCARD_30);
+        g_print ("Got contact:\n%s\n\n", s);
+        g_free (s);
+      } else {
+        g_print ("Got contact %s\n",
+                 (char*)e_contact_get_const (contact, E_CONTACT_FILE_AS));
+      }
       contacts = g_list_next (contacts);
     }
   }
