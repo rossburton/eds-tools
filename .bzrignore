@@ -9,6 +9,7 @@ configure
 autom4te.cache
 aclocal.m4
 config.h.in
+libtool
 **/Makefile.in
 **/Makefile
 **/.deps
@@ -17,4 +18,4 @@ config.h.in
 **/*.loT
 **/*.la
 **/stamp-h1
-libtool
+src/eds-bookview

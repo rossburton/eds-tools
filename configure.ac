@@ -10,9 +10,12 @@ AC_PROG_CC
 AC_STDC_HEADERS
 AC_PROG_LIBTOOL
 
+PKG_CHECK_MODULES(DBUS, dbus-glib-1)
+PKG_CHECK_MODULES(EBOOK, libebook-1.2)
 PKG_CHECK_MODULES(EDATABOOK, libedata-book-1.2)
 
 AC_OUTPUT([
 Makefile
 dummy-ebook/Makefile
+src/Makefile
 ])
