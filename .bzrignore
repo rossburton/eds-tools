@@ -8,7 +8,7 @@ missing
 configure
 autom4te.cache
 aclocal.m4
-src/config.h.in
+config.h.in
 **/Makefile.in
 **/Makefile
 **/.deps
@@ -16,5 +16,5 @@ src/config.h.in
 **/*.lo
 **/*.loT
 **/*.la
-src/stamp-h1
+**/stamp-h1
 libtool

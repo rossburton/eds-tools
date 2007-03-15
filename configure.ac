@@ -1,8 +1,8 @@
 AC_PREREQ(2.53)
 AC_INIT(e-book-backend-dummy, 0.1, http://www.openedhand.com/)
 AM_INIT_AUTOMAKE()
-AC_CONFIG_SRCDIR(src/e-book-backend-dummy.c)
-AM_CONFIG_HEADER(src/config.h)
+AC_CONFIG_SRCDIR(dummy-ebook/e-book-backend-dummy.c)
+AM_CONFIG_HEADER(config.h)
 
 AM_DISABLE_STATIC
 AC_ISC_POSIX
@@ -14,5 +14,5 @@ PKG_CHECK_MODULES(EDATABOOK, libedata-book-1.2)
 
 AC_OUTPUT([
 Makefile
-src/Makefile
+dummy-ebook/Makefile
 ])
