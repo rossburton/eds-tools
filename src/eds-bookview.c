@@ -18,13 +18,15 @@ static const GOptionEntry options[] =  {
   { NULL }
 };
 
-static void view_status_message (EBookView *book_view, const char*message, gpointer userdata)
+static void
+view_status_message (EBookView *book_view, const char*message, gpointer userdata)
 {
   if (!silent)
     g_print ("Status: %s\n", message);
 }
 
-static void view_contacts_added (EBookView *book_view, GList *contacts, gpointer userdata)
+static void
+view_contacts_added (EBookView *book_view, GList *contacts, gpointer userdata)
 {
   if (!silent) {
     while (contacts) {
@@ -43,7 +45,8 @@ static void view_contacts_added (EBookView *book_view, GList *contacts, gpointer
   }
 }
 
-static void view_complete (EBookView *book_view, EBookViewStatus status, gpointer userdata)
+static void
+view_complete (EBookView *book_view, EBookViewStatus status, gpointer userdata)
 {
   if (!silent)
     g_print ("Book view completed (status %d)\n", status);
@@ -52,14 +55,15 @@ static void view_complete (EBookView *book_view, EBookViewStatus status, gpointe
   g_main_loop_quit (loop);
 }
 
-int main(int argc, char **argv) {
+int
+main(int argc, char **argv) {
   GError *error = NULL;
   GOptionContext *context;
   EBook *book;
   EBookQuery *query;
   EBookView *view;
   
-  g_type_init();
+  g_type_init ();
 
   context = g_option_context_new ("- EBookView stress test");
   g_option_context_add_main_entries (context, options, NULL);
