@@ -1,5 +1,5 @@
 #include <libebook/e-book.h>
-#include <dbus/dbus-glib.h>
+#include "util.h"
 
 static GMainLoop *loop = NULL;
 
@@ -17,23 +17,6 @@ static const GOptionEntry options[] =  {
   { "silent", 's', 0, G_OPTION_ARG_NONE, &silent, "No output" },
   { NULL }
 };
-
-/* Convenience function to print an error and exit */
-static void
-die (const char *prefix, GError *error) 
-{
-  if (error) {
-    if (error->code == DBUS_GERROR_REMOTE_EXCEPTION) {
-      g_error ("%s: %s (%s)", prefix, error->message, dbus_g_error_get_name (error));
-    } else {
-      g_error ("%s: %s (%d)", prefix, error->message, error->code);
-    }
-    g_error_free (error);
-  } else {
-    g_error (prefix);
-  }
-  exit (1);
-}
 
 static void view_status_message (EBookView *book_view, const char*message, gpointer userdata)
 {
