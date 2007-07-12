@@ -20,3 +20,4 @@ libtool
 **/stamp-h1
 src/eds-bookview
 src/eds-get-vcard
+src/eds-edit-vcard
