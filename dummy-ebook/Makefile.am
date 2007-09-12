@@ -1,4 +1,4 @@
-backenddir = @EXTENSIONDIR@
+backenddir = ${libdir}/evolution-data-server-1.2/extensions/
 backend_LTLIBRARIES = libebookbackenddummy.la
 
 libebookbackenddummy_la_SOURCES =	\
