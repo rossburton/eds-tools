@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(e-book-backend-dummy, 0.1, http://www.openedhand.com/)
+AC_INIT(eds-tools, 0.1, http://www.openedhand.com/)
 AM_INIT_AUTOMAKE()
 AC_CONFIG_SRCDIR(dummy-ebook/e-book-backend-dummy.c)
 AM_CONFIG_HEADER(config.h)
@@ -18,9 +18,11 @@ AC_SUBST(EXTENSIONDIR, $extensiondir)
 PKG_CHECK_MODULES(DBUS, dbus-glib-1)
 PKG_CHECK_MODULES(EBOOK, libebook-1.2)
 PKG_CHECK_MODULES(EDATABOOK, libedata-book-1.2)
+PKG_CHECK_MODULES(GTK, gtk+-2.0)
 
 AC_OUTPUT([
 Makefile
 dummy-ebook/Makefile
 src/Makefile
+monitor/Makefile
 ])

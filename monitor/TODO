@@ -1,0 +1,3 @@
+Show some event details in the events list view
+Show diffs when displaying change events
+Show error dialogs instead of spewing to console
