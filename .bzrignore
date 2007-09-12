@@ -18,8 +18,8 @@ libtool
 **/*.loT
 **/*.la
 **/stamp-h1
-src/eds-bookview
-src/eds-get-vcard
-src/eds-edit-vcard
+tools/eds-bookview
+tools/eds-get-vcard
+tools/eds-edit-vcard
+tools/eds-add-remove
 monitor/eds-monitor
-src/eds-add-remove

@@ -1,1 +1,1 @@
-SUBDIRS = dummy-ebook src monitor
+SUBDIRS = dummy-ebook monitor tools

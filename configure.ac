@@ -23,6 +23,6 @@ PKG_CHECK_MODULES(GTK, gtk+-2.0)
 AC_OUTPUT([
 Makefile
 dummy-ebook/Makefile
-src/Makefile
 monitor/Makefile
+tools/Makefile
 ])
