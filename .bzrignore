@@ -21,3 +21,5 @@ libtool
 src/eds-bookview
 src/eds-get-vcard
 src/eds-edit-vcard
+monitor/eds-monitor
+src/eds-add-remove
