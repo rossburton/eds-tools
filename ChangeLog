@@ -1,3 +1,9 @@
+2008-02-04  Ross Burton  <ross@burtonini.com>
+
+	* tools/eds-get-contacts.c:
+	* tools/Makefile.am:
+	Add tool to call GetContactList.
+
 2007-03-15  Ross Burton  <ross@burtonini.com>
 
 	* configure.ac:

@@ -20,6 +20,8 @@ libtool
 **/stamp-h1
 tools/eds-bookview
 tools/eds-get-vcard
+tools/eds-get-contacts
 tools/eds-edit-vcard
 tools/eds-add-remove
 monitor/eds-monitor
+
