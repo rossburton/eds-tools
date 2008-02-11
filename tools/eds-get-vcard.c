@@ -17,7 +17,7 @@ main (int argc, char **argv)
 
   book = e_book_new_system_addressbook (&error);
   if (!book)
-    die ("Cannot get book: %s", error);
+    die ("Cannot get book", error);
   
   if (!e_book_open (book, TRUE, &error))
     die ("Cannot open book", error);
