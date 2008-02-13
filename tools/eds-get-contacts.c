@@ -1,12 +1,14 @@
 #include <libebook/e-book.h>
 #include "util.h"
 
+static char *uri = NULL;
 static char *query_str = NULL;
 static int count = 1;
 static gboolean silent = FALSE;
 static gboolean verbose = FALSE;
 
 static const GOptionEntry options[] =  {
+  { "uri", 'u', 0, G_OPTION_ARG_STRING, &uri, "URI of book to open (default: system addressbook)." },
   { "query", 'q', 0, G_OPTION_ARG_STRING, &query_str, "Query to use (default: none)" },
   { "repetition", 'r', 0, G_OPTION_ARG_INT, &count, "Number of repetitions (default: 1)" },
   { "verbose", 'v', 0, G_OPTION_ARG_NONE, &verbose, "Verbose output" },
@@ -36,8 +38,12 @@ main(int argc, char **argv) {
 
   if (verbose) g_print ("Getting EBook...\n");
 
-  book = e_book_new_system_addressbook (&error);
-  
+  if (uri) {
+    book = e_book_new_from_uri (uri, &error);
+    g_free (uri);
+  } else {
+    book = e_book_new_system_addressbook (&error);
+  }  
   if (!book)
     die ("Cannot get book", error);
 
