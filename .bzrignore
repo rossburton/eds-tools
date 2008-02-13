@@ -24,5 +24,6 @@ tools/eds-get-contacts
 tools/eds-edit-vcard
 tools/eds-add-remove
 tools/eds-add
+tools/eds-remove
 monitor/eds-monitor
 
