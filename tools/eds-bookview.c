@@ -91,7 +91,7 @@ main(int argc, char **argv) {
 
   if (verbose) g_print ("Got EBook\nOpening book...\n");
 
-  if (!e_book_open (book, TRUE, &error))
+  if (!e_book_open (book, FALSE, &error))
     die ("Cannot open book", error);
 
   if (verbose) g_print ("Opened book\n");

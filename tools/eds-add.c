@@ -40,7 +40,7 @@ main (int argc, char **argv)
   if (!book)
     die ("Cannot get book", error);
   
-  if (!e_book_open (book, TRUE, &error))
+  if (!e_book_open (book, FALSE, &error))
     die ("Cannot open book", error);
 
   if (!e_book_add_contact (book, contact, &error))

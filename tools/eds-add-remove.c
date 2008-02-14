@@ -33,7 +33,7 @@ main (int argc, char **argv)
   if (!book)
     die ("Cannot get book: %s", error);
   
-  if (!e_book_open (book, TRUE, &error))
+  if (!e_book_open (book, FALSE, &error))
     die ("Cannot open book", error);
 
   while (count--) {
