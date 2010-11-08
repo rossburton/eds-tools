@@ -76,7 +76,7 @@ main(int argc, char **argv) {
         g_free (s);
       } else if (!silent) {
         g_print ("Got contact %s\n",
-                 (char*)e_contact_get_const (contact, E_CONTACT_FILE_AS));
+                 (char*)e_contact_get_const (contact, E_CONTACT_FULL_NAME));
       }
       g_object_unref (contact);
       list = g_list_delete_link (list, list);
