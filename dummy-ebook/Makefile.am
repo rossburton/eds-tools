@@ -8,10 +8,10 @@ libebookbackenddummy_la_SOURCES =	\
 
 libebookbackenddummy_la_CPPFLAGS = \
 	-DG_LOG_DOMAIN=\"libebookbackend\" \
-	$(EDATABOOK_CFLAGS) -Wall
+	$(EDATABOOK_CFLAGS) $(EBACKEND_CFLAGS) -Wall
 
 libebookbackenddummy_la_LIBADD = \
-	$(EDATABOOK_LIBS)
+	$(EDATABOOK_LIBS) $(EBACKEND_LIBS)
 
 libebookbackenddummy_la_LDFLAGS =	\
 	-module -avoid-version
